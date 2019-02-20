@@ -1,3 +1,5 @@
+package sampleTest;
+
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.Connection;
@@ -15,17 +17,12 @@ import javax.servlet.http.HttpServletResponse;
  * See <a href="http://www.javacodegeeks.com/2012/11/sql-injection-in-java-application.html">http://www.javacodegeeks.com/2012/11/sql-injection-in-java-application.html</a>
  * Call with <code>sdfssd' or '1'='1</code> or <code>ramki' UNION SELECT * FROM mysql.`user` u --</code>
  */
-public class Quicktest extends HttpServlet {
+public class QuickTest extends HttpServlet {
 
     /** serialVersionUID description. */
     private static final long serialVersionUID = -3727179258077207351L;
 
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public StartServlet() {
-        super();
-    }
+   
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -44,6 +41,9 @@ public class Quicktest extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
         out.println("<h1>SQL Injection Example</h1><br/><br/>");
+		
+		myClass testSample = new myClass(); 
+		
         try {
 
             out.println("<html>");
@@ -75,6 +75,8 @@ public class Quicktest extends HttpServlet {
                 // preparedStatement.setString(1, user);
 
                 System.out.printf(query);
+				
+				query=testSample.fixThis(query);
                 ResultSet res = st.executeQuery(query);
 
                 // ResultSet res = preparedStatement.executeQuery();
