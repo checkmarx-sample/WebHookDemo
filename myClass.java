@@ -1,6 +1,6 @@
 package sampleTest;
 public class myClass 
-{//testx
+{//testxc
 	public static String fixThis(String cleanMe)
 	{
 		String cleansedString ="";
